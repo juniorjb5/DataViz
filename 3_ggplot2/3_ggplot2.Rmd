@@ -1,9 +1,9 @@
 ---
 title: "Data Visualization in R"
 subtitle: "<br/> library(ggplot2)"
-author: "PhD. St. Orlando Joaqui-Barandica"
-institute: "Universidad del Tolima"
-date: "2021"
+author: "Orlando Joaqui-Barandica, PhD"
+institute: "Universidad del Valle"
+date: "2024"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -68,7 +68,7 @@ background-color: #C0392B
 width="160px" href="https://www.joaquibarandica.com"
 />
 
-### [PhD. Student. Orlando Joaqui-Barandica](https://www.joaquibarandica.com) <br/>
+### [Orlando Joaqui-Barandica, PhD](https://www.joaquibarandica.com) <br/>
 ### Universidad del Valle
 ]
 
@@ -77,7 +77,7 @@ width="160px" href="https://www.joaquibarandica.com"
 
 .center[
 
-*PhD. Student in Engineering with emphasis in Engineering Industrial* 
+*PhD. in Engineering with emphasis in Engineering Industrial* 
  
 *MSc. Applied Economics*
  
@@ -118,7 +118,7 @@ knitr::include_graphics("img/gif1.gif")
 ### [www.joaquibarandica.com](https://www.joaquibarandica.com)
 
 
-`Statistician and Master in Applied Economics from Universidad del Valle. He is currently a Ph.D. student in Engineering with an emphasis in Industrial Engineering. Teaching and research experience in the area of Statistics, Econometrics and Quantitative Finance in different recognized universities in the region such as Universidad del Valle, Pontificia Universidad Javeriana de Cali and Universidad ICESI. Research lines: Applied Statistics, Applied Econometrics, Quantitative Finance, Asset-Liability Management.`
+`Statistician and Master in Applied Economics from Universidad del Valle. Ph.D. in Engineering with an emphasis in Industrial Engineering. Teaching and research experience in the area of Statistics, Econometrics and Quantitative Finance in different recognized universities in the region such as Universidad del Valle, Pontificia Universidad Javeriana de Cali and Universidad ICESI. Research lines: Applied Statistics, Applied Econometrics, Quantitative Finance, Asset-Liability Management.`
 ]
 ]
 

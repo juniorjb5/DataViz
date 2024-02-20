@@ -1,9 +1,9 @@
 ---
 title: "Rmarkdown"
 subtitle: "<br/> Generación de informes"
-author: "PhD.(C) Orlando Joaqui-Barandica"
+author: "Orlando Joaqui-Barandica, PhD"
 institute: "Universidad del Valle"
-date: "2023"
+date: "2024"
 output:
   xaringan::moon_reader:
     lib_dir: libs

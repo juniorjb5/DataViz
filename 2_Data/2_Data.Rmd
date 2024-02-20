@@ -1,9 +1,9 @@
 ---
 title: "Data Visualization in R"
 subtitle: "<br/> Data preparation & Tables"
-author: "PhD. St. Orlando Joaqui-Barandica"
-institute: "Universidad del Tolima"
-date: "2021"
+author: "Orlando Joaqui-Barandica, PhD"
+institute: "Universidad del Valle"
+date: "2024"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -68,7 +68,7 @@ background-color: #C0392B
 width="160px" href="https://www.joaquibarandica.com"
 />
 
-### [PhD. Student. Orlando Joaqui-Barandica](https://www.joaquibarandica.com) <br/>
+### [Orlando Joaqui-Barandica, PhD](https://www.joaquibarandica.com) <br/>
 ### Universidad del Valle
 ]
 
@@ -77,7 +77,7 @@ width="160px" href="https://www.joaquibarandica.com"
 
 .center[
 
-*PhD. Student in Engineering with emphasis in Engineering Industrial* 
+*PhD. in Engineering with emphasis in Engineering Industrial* 
  
 *MSc. Applied Economics*
  
@@ -118,7 +118,7 @@ knitr::include_graphics("img/gif1.gif")
 ### [www.joaquibarandica.com](https://www.joaquibarandica.com)
 
 
-`Statistician and Master in Applied Economics from Universidad del Valle. He is currently a Ph.D. student in Engineering with an emphasis in Industrial Engineering. Teaching and research experience in the area of Statistics, Econometrics and Quantitative Finance in different recognized universities in the region such as Universidad del Valle, Pontificia Universidad Javeriana de Cali and Universidad ICESI. Research lines: Applied Statistics, Applied Econometrics, Quantitative Finance, Asset-Liability Management.`
+`Statistician and Master in Applied Economics from Universidad del Valle. Ph.D. in Engineering with an emphasis in Industrial Engineering. Teaching and research experience in the area of Statistics, Econometrics and Quantitative Finance in different recognized universities in the region such as Universidad del Valle, Pontificia Universidad Javeriana de Cali and Universidad ICESI. Research lines: Applied Statistics, Applied Econometrics, Quantitative Finance, Asset-Liability Management.`
 ]
 ]
 
@@ -165,6 +165,178 @@ class: inverse, center, middle
 ]
 
 ---
+
+
+
+name: Descriptivas
+class: inverse, center, middle
+
+# `r icon("sort-numeric-up")`
+# Estadísticas descriptivas
+----
+
+.right[
+.bottom[
+####  [`r icon("bell")`](#menu)
+]
+]
+
+---
+
+# `r icon("sort-numeric-up")` Indicadores de tendencia central
+
+
+* Indicadores de tendencia central: Muestran hacia donde tienden la mayoría de los datos, un ejemplo es el promedio, que también se conoce como “el centro de gravedad de los datos”.
+
+* Los indicadores son: Promedio, Mediana y Moda.
+
+* Las funciones respectivas en R son: `mean()`, `median()`. R no dispone de
+una función en su paquete base (stats). Por lo cuál se utiliza el paquete
+`modeest`
+
+
+``` r
+
+install.packages("modeest")
+
+library(modeest)
+mlv(runif(20), method = "mfv")[1] ## Genera el valor más frecuente
+
+```
+
+---
+
+# `r icon("sort-numeric-up")` Indicadores de tendencia central
+
+
+Para el siguiente vector, calcule la media, mediana y moda
+
+``` r
+x <- c(20,NA,10,15,NA,25,22,NA)
+
+mean(x,na.rm=T)
+median(x,na.rm=T)
+mlv(x, method = "mfv",na.rm=T)[1]
+
+``` 
+
+En el caso de variable cuantitativas continuas la moda corresponde a los
+valores alrededor de los cuales se produce la mayor concentración de los datos
+
+
+---
+
+# `r icon("sort-numeric-up")` Indicadores de dispersión
+
+
+Suponga que se tienen tres grupos de personas con las siguientes estaturas:
+
+``` r
+Grupo1 <- c(60, 100, 140, 180)
+Grupo2 <- c(100, 100, 140, 140)
+Grupo3 <- c(120, 120, 120, 120)
+``` 
+
+
+
+``` r
+mean(Grupo1); mean(Grupo2); mean(Grupo3)
+var(Grupo1); var(Grupo2); var(Grupo3)
+sd(Grupo1); sd(Grupo2); sd(Grupo3)
+```
+
+Analice que dichos grupos tienen igual promedio pero su variabilidad es
+distinta.
+
+
+---
+
+# `r icon("sort-numeric-up")` Coeficiente de variación
+
+Coeficiente de Variación: Ayuda a identificar si los datos son homogéneos o
+heterogéneos. Determinar si cierta media es consistente con cierta varianza.
+Su cálculo es:
+
+$$ CV(x) = \frac{ \sigma }{\bar{x}} * 100 $$
+
+<br>
+
+**Ejercicio:**
+
+Genere una función que permita calcular el coeficiente de variación a los grupos anteriormente establecidos.
+
+
+``` r
+cv<-function(Y){
+  
+  (sd(Y)/mean(Y))*100
+  
+}
+
+x<-runif(20)
+
+cv(x)
+
+```
+
+
+
+---
+
+
+# `r icon("sort-numeric-up")` Indicadores de posición
+
+
+* Los indicadores de posición que más se trabaja en el análisis descriptivo
+son los cuartiles, estos dividen la muestra ordenada en cuatro partes
+que contienen aproximadamente el mismo número de datos
+
+* La función en R sería `quantile()`
+
+* También se pueden calcular los percentiles. Por ejemplo: P80 A partir
+de que valor se encuentra el 80% de los datos.
+
+
+
+``` r
+
+x<- rnorm(10000000)
+
+quantile(x,0.95)
+
+```
+
+---
+
+# `r icon("sort-numeric-up")` Datos agrupados
+
+
+Sea la variable Ingreso en millones, conforme una tabla de frecuencias. Explore
+la función `table.freq()` de la librería `agricolae`.
+
+
+``` r
+
+library(agricolae)
+
+Ingreso <- c(2, 1.5, 3, 2.2, 1, 1.2, 3, 4, 5, 1, 2)
+tbFreq <- table.freq(hist(Ingreso, plot=FALSE))
+tbFreq
+
+```
+
+
+# Actividad
+
+Para la variable **edad** de los datos de `CovidMuestra`. Genere las estadísticas descriptivas y la tabla de frecuencias. *(Una vez identifique como cargar la base de datos)*
+
+
+
+
+
+---
+
+
 
 
 # `r icon("upload")` Importar Data
@@ -938,6 +1110,7 @@ knitr::include_graphics("img/left_join.png")
 
 
 
+
 name: Actividad
 class: inverse
 background-color: #00081d
@@ -952,27 +1125,28 @@ background-color: #00081d
 ![](https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif)
 
 ![](https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif)
+
+
 ]
 
 .right-column[
-1️⃣ Descargue la información de Covid-19 🦠  para Colombia desde 🔗**[Datos Abiertos](https://www.datos.gov.co/)**
+1️⃣ Utilice los datos `CovidMuestra.xlsx`🦠, los cuales tienen una muestra de 1500 casos de covid. Puede entrar al repositorio del curso en el Github y descargarlos.
+
+Genere las siguientes estadísticas por grupo, tenga presente si debe recodificar valores:
+
+* Promedio de edad por departamento
+* Promedio de edad por sexo
+* Promedio de edad por departamento y sexo 
+
+2️⃣ Realizar lo mismo del punto 1, para la desviación estándar y mediana.
 
 
-2️⃣ Descargue la información Divipola la cual permita georeferenciar 🧭 los municipios y departamentos de Colombia (Consulte la información en el 🔗**[Geo-Portal del DANE](https://geoportal.dane.gov.co/geovisores/territorio/consulta-divipola-division-politico-administrativa-de-colombia/)**)
 
-
-3️⃣ Realice un *"merge"* entre las dos bases de datos, de tal manera que pueda obtener una nueva data que consolide lo siguiente:
-
-* Código Divipola (Dpto) 
-* Fecha
-* Departamento
-* Municipio
-* Edad
-* Sexo
 ]
 
 
 ---
+
 
 name: Tablas
 class: inverse, center, middle

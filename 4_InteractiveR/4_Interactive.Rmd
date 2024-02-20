@@ -1,9 +1,9 @@
 ---
 title: "Data Visualization in R"
 subtitle: "<br/> Interactive Graphs"
-author: "PhD. St. Orlando Joaqui-Barandica"
-institute: "Universidad del Tolima"
-date: "2021"
+author: "Orlando Joaqui-Barandica, PhD"
+institute: "Universidad del Valle"
+date: "2024"
 output:
   xaringan::moon_reader:
     lib_dir: libs
